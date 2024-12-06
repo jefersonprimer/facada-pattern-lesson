@@ -1,25 +1,11 @@
 import { Cliente } from './models/cliente';
-import { ClienteAvatar } from './models/cliente-avatar';
-import { ClienteDocumentos } from './models/cliente-documentos';
-import { ClienteHistoricoAcesso } from './models/cliente-historico-acesso';
-import { ClienteService } from './models/cliente-service';
-import { ClienteEmail } from './models/cliente-email';
+import { Facada } from './facada/cliente-facada.ts'
 
 const jeferson = new Cliente(
   "jeferson primer",
   "jefersonprimer",
-  "jefersonpriimer@gmail.com"
+  "jefersonprimer@gmail.com"
 );
 
-const clienteAvatar = new ClienteAvatar(jeferson);
-const clienteDocumentos = new ClienteDocumentos(jeferson);
-const clienteHistoricoAcesso = new ClienteHistoricoAcesso(jeferson);
-const clienteService = new ClienteService(jeferson);
-const clienteEmail = new ClienteEmail(jeferson);
-
-clienteAvatar.remove();
-clienteDocumentos.delete();
-clienteHistoricoAcesso.remove();
-clienteService.delete();
-clienteEmail.envioRemocaoConta();
-  
+const ClienteFacada = new Facada.ClienteFacada(jeferson);
+ClienteFacada.removeConta();
